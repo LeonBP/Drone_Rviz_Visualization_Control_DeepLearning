@@ -1,0 +1,75 @@
+[param]
+# CPU mode or GPU mode for the detector
+use_gpu = 1
+
+# GPU device number (doesn't matter for CPU mode)
+GPUdeviceNumber = 0
+
+# Select models
+detectorID = 2
+classifierID = 2
+
+# Look in matlab counterpart for explanation
+octave = 3
+starting_range = 0.8
+ending_range = 2
+scale_search = 0.25,0.45
+#, 1, 1.5, 2
+thre1 = 0.1
+thre2 = 0.05 
+thre3 = 0.5 
+min_num = 4
+mid_num = 10
+crop_ratio = 2.5
+bbox_ratio = 0.25
+
+[detectors]
+
+[[1]]
+load_mode = 'pb'
+init = init_net.pb
+predict = predict_net.pb
+caffemodel = './model/pose_iter_440000.caffemodel'
+deployFile = './model/pose_deploy.prototxt'
+type = 'skeleton PAF'
+boxsize = 368
+padValue = 128
+np = 12
+stride = 8
+part_str = face, chest, shoulder right, arm right, hand right, shoulder left, arm left, hand left, hip right, knee right, foot right, hip left, knee left, foot left, eye left, eye right, ear left, ear right
+description = 'COCO Pose56 Two-level Linevec'
+
+[[2]]
+load_mode = 'pkl'
+model_file = https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl
+cfg_file = /home/mrrobot/Leon/detectron/configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml
+type = 'image nobackground mask rcnn'
+part_str = face, eye left, eye right, ear left, ear right, shoulder left, shoulder right, arm left, arm right, hand left, hand right, hip left, hip right, knee left, knee right, foot left, foot right
+description = 'e2e mask rcnn R-101-FPN_2x'
+
+[[3]]
+load_mode = 'pkl'
+model_file = https://s3-us-west-2.amazonaws.com/detectron/37697946/12_2017_baselines/e2e_keypoint_rcnn_R-101-FPN_1x.yaml.08_45_06.Y14KqbST/output/train/keypoints_coco_2014_train%3Akeypoints_coco_2014_valminusminival/generalized_rcnn/model_final.pkl
+cfg_file = /home/mrrobot/Leon/detectron/configs/12_2017_baselines/e2e_keypoint_rcnn_R-101-FPN_1x.yaml
+type = 'skeleton mask rcnn keypoint'
+part_str = face, eye left, eye right, ear left, ear right, shoulder left, shoulder right, arm left, arm right, hand left, hand right, hip left, hip right, knee left, knee right, foot left, foot right
+description = 'e2e keypoint rcnn R-101-FPN_1x'
+
+[classifiers]
+
+[[1]]
+model_file = 'heuristic'
+type = 'skeleton'
+#Angle limists for the different sectors: Right[0-1],Up-Right[1-2],Up[2-3],Up-left[3-4],Down-Right[0-5],Down[5-6],Down-Left[6-7], Left[Else]
+angle_limits=-20.0, 30.0, 60.0, 110.0, 150.0, -70.0, -120.0, -160.0
+
+[[2]]
+model_file = '2mobilenet_directions_nobackground_dataug.model'
+type = 'image nobackground'
+class_index = down, downleft, downright, left, right, up, upleft, upright
+
+[[3]]
+model_file = '1MNISTExample_npy.model'
+type = 'skeleton'
+input_order = face, eye left, eye right, ear left, ear right, shoulder left, shoulder right, arm left, arm right, hand left, hand right, hip left, hip right, knee left, knee right, foot left, foot right
+class_index = down, downleft, downright, left, right, up, upleft, upright
