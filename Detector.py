@@ -255,7 +255,7 @@ class Detector_one_person:
             
         elapsed_time = int(round(time.time() * 1000)) - start_time
         print("Elapsed representation time: %0.2f seconds." % elapsed_time)
-        
+        self.cls_boxes, self.cls_segms, self.cls_keyps = None, None, None
         return keypoint_dictionary, processed_img
     
     

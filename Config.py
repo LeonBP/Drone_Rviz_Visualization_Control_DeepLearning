@@ -44,10 +44,10 @@ TOPIC_CAMERA = "/camera/color/image_raw" #ROSBAG ETH Zurich
 N_IMAGES= 1
 
 #######Threshold to accept one vote from a frame
-VOTE_THRESH=0.3
+VOTE_THRESH=0.5
 
 #######Number of (quasi)consecutive, equal votes to give an order
-CONSENSUS_MIN= 3
+CONSENSUS_MIN= 7
 
 #######Number of different votes allowed in the consensus
 N_DISCREPANCIES= 1
