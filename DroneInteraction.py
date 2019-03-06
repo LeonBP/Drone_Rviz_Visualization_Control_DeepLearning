@@ -94,6 +94,7 @@ class Movement():
         data = ""
         while data != "Ok"and data != "No":
             data = rospy.wait_for_message("/Output", String, timeout=5000.0).data
+            #data = "Ok"##
         if data != "No":
             marker = self.create_mark(self.msg.pose.position.x,self.msg.pose.position.y,self.msg.pose.position.z,self.msg.pose.position.x+x,self.msg.pose.position.y+y,self.msg.pose.position.z+z,True)
             self.msg.pose.position.x +=x

@@ -42,7 +42,8 @@ description = 'COCO Pose56 Two-level Linevec'
 [[2]]
 load_mode = 'pkl'
 model_file = https://dl.fbaipublicfiles.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl
-cfg_file = /home/mrrobot/Leon/detectron/configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml
+#model_file = FULLPATH TO MODEL /model_final.pkl
+cfg_file = /home/leon/repos/detectron/configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml
 type = 'image nobackground mask rcnn'
 part_str = face, eye left, eye right, ear left, ear right, shoulder left, shoulder right, arm left, arm right, hand left, hand right, hip left, hip right, knee left, knee right, foot left, foot right
 description = 'e2e mask rcnn R-101-FPN_2x'
@@ -50,7 +51,7 @@ description = 'e2e mask rcnn R-101-FPN_2x'
 [[3]]
 load_mode = 'pkl'
 model_file = https://dl.fbaipublicfiles.com/detectron/37697946/12_2017_baselines/e2e_keypoint_rcnn_R-101-FPN_1x.yaml.08_45_06.Y14KqbST/output/train/keypoints_coco_2014_train:keypoints_coco_2014_valminusminival/generalized_rcnn/model_final.pkl
-cfg_file = /home/mrrobot/Leon/detectron/configs/12_2017_baselines/e2e_keypoint_rcnn_R-101-FPN_1x.yaml
+cfg_file = /home/leon/repos/detectron/configs/12_2017_baselines/e2e_keypoint_rcnn_R-101-FPN_1x.yaml
 type = 'skeleton mask rcnn keypoint'
 part_str = face, eye left, eye right, ear left, ear right, shoulder left, shoulder right, arm left, arm right, hand left, hand right, hip left, hip right, knee left, knee right, foot left, foot right
 description = 'e2e keypoint rcnn R-101-FPN_1x'
@@ -64,7 +65,7 @@ type = 'skeleton'
 angle_limits=-20.0, 30.0, 60.0, 110.0, 150.0, -70.0, -120.0, -160.0
 
 [[2]]
-model_file = 'mobilenet_directions_demo.model'
+model_file = 'mobilenetv2_directions_sizes_demo.model'
 type = 'image nobackground'
 class_index = down, downleft, downright, left, right, up, upleft, upright
 

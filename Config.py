@@ -37,6 +37,7 @@ RES_SCALE = 0.8
 #######Topic for the frontal camera (compressed)
 #TOPIC_CAMERA = "/camera/color/image_raw/compressed" #RealSense
 TOPIC_CAMERA = "/camera/color/image_raw" #ROSBAG ETH Zurich
+#TOPIC_CAMERA = "/videofile/image_raw" #VIDEOFILE
 #TOPIC_CAMERA = "/camera/rgb/image_rect_color" #ROSBAG I3A
 #TOPIC_CAMERA = "/firefly/camera/camera_frontal/image_raw/compressed" #Simulation
 
@@ -47,7 +48,7 @@ N_IMAGES= 1
 VOTE_THRESH=0.5
 
 #######Number of (quasi)consecutive, equal votes to give an order
-CONSENSUS_MIN= 7
+CONSENSUS_MIN= 4
 
 #######Number of different votes allowed in the consensus
 N_DISCREPANCIES= 1

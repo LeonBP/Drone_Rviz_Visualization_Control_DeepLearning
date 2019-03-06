@@ -84,7 +84,7 @@ class Detector_one_person:
                 assert os.path.exists(self.detector['model_file'])
                 assert os.path.exists(self.detector['cfg_file'])
                 
-            im = cv.imread('/home/mrrobot/Leon/Datasets/input/Frame_4352.png')
+            im = cv.imread('init_img/street.jpg')
             dummy_coco_dataset = dummy_datasets.get_coco_dataset()
             cfg_orig = load_cfg(yaml.dump(cfg))
             
